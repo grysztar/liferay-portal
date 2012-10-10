@@ -714,6 +714,33 @@ public class JournalTemplateWrapper implements JournalTemplate,
 	}
 
 	/**
+	* Returns the unrestricted of this journal template.
+	*
+	* @return the unrestricted of this journal template
+	*/
+	public boolean getUnrestricted() {
+		return _journalTemplate.getUnrestricted();
+	}
+
+	/**
+	* Returns <code>true</code> if this journal template is unrestricted.
+	*
+	* @return <code>true</code> if this journal template is unrestricted; <code>false</code> otherwise
+	*/
+	public boolean isUnrestricted() {
+		return _journalTemplate.isUnrestricted();
+	}
+
+	/**
+	* Sets whether this journal template is unrestricted.
+	*
+	* @param unrestricted the unrestricted of this journal template
+	*/
+	public void setUnrestricted(boolean unrestricted) {
+		_journalTemplate.setUnrestricted(unrestricted);
+	}
+
+	/**
 	* Returns the small image of this journal template.
 	*
 	* @return the small image of this journal template

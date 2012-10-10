@@ -75,7 +75,7 @@ public class JournalTemplateServiceSoap {
 		java.lang.String[] descriptionMapLanguageIds,
 		java.lang.String[] descriptionMapValues, java.lang.String xsl,
 		boolean formatXsl, java.lang.String langType, boolean cacheable,
-		com.liferay.portal.service.ServiceContext serviceContext)
+		boolean unrestricted, com.liferay.portal.service.ServiceContext serviceContext)
 		throws RemoteException {
 		try {
 			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
@@ -86,7 +86,7 @@ public class JournalTemplateServiceSoap {
 			com.liferay.portlet.journal.model.JournalTemplate returnValue = JournalTemplateServiceUtil.addTemplate(groupId,
 					templateId, autoTemplateId, structureId, nameMap,
 					descriptionMap, xsl, formatXsl, langType, cacheable,
-					serviceContext);
+					unrestricted, serviceContext);
 
 			return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
 		}
@@ -241,6 +241,7 @@ public class JournalTemplateServiceSoap {
 		java.lang.String[] descriptionMapLanguageIds,
 		java.lang.String[] descriptionMapValues, java.lang.String xsl,
 		boolean formatXsl, java.lang.String langType, boolean cacheable,
+		boolean unrestricted,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws RemoteException {
 		try {
@@ -251,7 +252,7 @@ public class JournalTemplateServiceSoap {
 
 			com.liferay.portlet.journal.model.JournalTemplate returnValue = JournalTemplateServiceUtil.updateTemplate(groupId,
 					templateId, structureId, nameMap, descriptionMap, xsl,
-					formatXsl, langType, cacheable, serviceContext);
+					formatXsl, langType, cacheable, unrestricted, serviceContext);
 
 			return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
 		}

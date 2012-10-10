@@ -733,6 +733,7 @@ public class JournalTemplatePersistenceImpl extends BasePersistenceImpl<JournalT
 		journalTemplateImpl.setXsl(journalTemplate.getXsl());
 		journalTemplateImpl.setLangType(journalTemplate.getLangType());
 		journalTemplateImpl.setCacheable(journalTemplate.isCacheable());
+		journalTemplateImpl.setUnrestricted(journalTemplate.isUnrestricted());
 		journalTemplateImpl.setSmallImage(journalTemplate.isSmallImage());
 		journalTemplateImpl.setSmallImageId(journalTemplate.getSmallImageId());
 		journalTemplateImpl.setSmallImageURL(journalTemplate.getSmallImageURL());

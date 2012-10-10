@@ -2595,6 +2595,7 @@
 			<basic name="xsl" />
 			<basic name="langType" />
 			<basic name="cacheable" />
+			<basic name="unrestricted" />
 			<basic name="smallImage" />
 			<basic name="smallImageId" />
 			<basic name="smallImageURL" />

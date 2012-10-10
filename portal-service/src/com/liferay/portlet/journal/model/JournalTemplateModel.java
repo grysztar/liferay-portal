@@ -474,6 +474,27 @@ public interface JournalTemplateModel extends BaseModel<JournalTemplate>,
 	public void setCacheable(boolean cacheable);
 
 	/**
+	 * Returns the unrestricted of this journal template.
+	 *
+	 * @return the unrestricted of this journal template
+	 */
+	public boolean getUnrestricted();
+
+	/**
+	 * Returns <code>true</code> if this journal template is unrestricted.
+	 *
+	 * @return <code>true</code> if this journal template is unrestricted; <code>false</code> otherwise
+	 */
+	public boolean isUnrestricted();
+
+	/**
+	 * Sets whether this journal template is unrestricted.
+	 *
+	 * @param unrestricted the unrestricted of this journal template
+	 */
+	public void setUnrestricted(boolean unrestricted);
+
+	/**
 	 * Returns the small image of this journal template.
 	 *
 	 * @return the small image of this journal template

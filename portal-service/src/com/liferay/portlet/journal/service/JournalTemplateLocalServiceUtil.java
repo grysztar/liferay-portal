@@ -288,15 +288,16 @@ public class JournalTemplateLocalServiceUtil {
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable, boolean smallImage, java.lang.String smallImageURL,
-		java.io.File smallImageFile,
+		boolean cacheable, boolean unrestricted, boolean smallImage,
+		java.lang.String smallImageURL, java.io.File smallImageFile,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .addTemplate(userId, groupId, templateId, autoTemplateId,
 			structureId, nameMap, descriptionMap, xsl, formatXsl, langType,
-			cacheable, smallImage, smallImageURL, smallImageFile, serviceContext);
+			cacheable, unrestricted, smallImage, smallImageURL, smallImageFile,
+			serviceContext);
 	}
 
 	public static void addTemplateResources(
@@ -497,15 +498,15 @@ public class JournalTemplateLocalServiceUtil {
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable, boolean smallImage, java.lang.String smallImageURL,
-		java.io.File smallImageFile,
+		boolean cacheable, boolean unrestricted, boolean smallImage,
+		java.lang.String smallImageURL, java.io.File smallImageFile,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .updateTemplate(groupId, templateId, structureId, nameMap,
-			descriptionMap, xsl, formatXsl, langType, cacheable, smallImage,
-			smallImageURL, smallImageFile, serviceContext);
+			descriptionMap, xsl, formatXsl, langType, cacheable, unrestricted,
+			smallImage, smallImageURL, smallImageFile, serviceContext);
 	}
 
 	public static JournalTemplateLocalService getService() {

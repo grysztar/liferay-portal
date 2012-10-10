@@ -69,7 +69,7 @@ public class JournalTemplateLocalServiceImpl
 			long userId, long groupId, String templateId,
 			boolean autoTemplateId, String structureId,
 			Map<Locale, String> nameMap, Map<Locale, String> descriptionMap,
-			String xsl, boolean formatXsl, String langType, boolean cacheable,
+			String xsl, boolean formatXsl, String langType, boolean cacheable, boolean unrestricted, 
 			boolean smallImage, String smallImageURL, File smallImageFile,
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
@@ -128,6 +128,7 @@ public class JournalTemplateLocalServiceImpl
 		template.setXsl(xsl);
 		template.setLangType(langType);
 		template.setCacheable(cacheable);
+		template.setUnrestricted(unrestricted);		
 		template.setSmallImage(smallImage);
 		template.setSmallImageId(counterLocalService.increment());
 		template.setSmallImageURL(smallImageURL);
@@ -273,6 +274,7 @@ public class JournalTemplateLocalServiceImpl
 		newTemplate.setXsl(oldTemplate.getXsl());
 		newTemplate.setLangType(oldTemplate.getLangType());
 		newTemplate.setCacheable(oldTemplate.isCacheable());
+		newTemplate.setUnrestricted(oldTemplate.isUnrestricted());
 		newTemplate.setSmallImage(oldTemplate.isSmallImage());
 		newTemplate.setSmallImageId(counterLocalService.increment());
 		newTemplate.setSmallImageURL(oldTemplate.getSmallImageURL());
@@ -534,7 +536,7 @@ public class JournalTemplateLocalServiceImpl
 	public JournalTemplate updateTemplate(
 			long groupId, String templateId, String structureId,
 			Map<Locale, String> nameMap, Map<Locale, String> descriptionMap,
-			String xsl, boolean formatXsl, String langType, boolean cacheable,
+			String xsl, boolean formatXsl, String langType, boolean cacheable, boolean unrestricted,
 			boolean smallImage, String smallImageURL, File smallImageFile,
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
@@ -590,6 +592,7 @@ public class JournalTemplateLocalServiceImpl
 		template.setXsl(xsl);
 		template.setLangType(langType);
 		template.setCacheable(cacheable);
+		template.setUnrestricted(unrestricted);
 		template.setSmallImage(smallImage);
 		template.setSmallImageURL(smallImageURL);
 		template.setModifiedDate(serviceContext.getModifiedDate(null));

@@ -143,6 +143,8 @@ public class ActionKeys {
 	public static final String BAN_USER = "BAN_USER";
 
 	public static final String CONFIGURATION = "CONFIGURATION";
+	
+	public static final String CREATE_UNRESTRICTED_TEMPLATES = "CREATE_UNRESTRICTED_TEMPLATES";
 
 	public static final String CONFIGURE_PORTLETS = "CONFIGURE_PORTLETS";
 

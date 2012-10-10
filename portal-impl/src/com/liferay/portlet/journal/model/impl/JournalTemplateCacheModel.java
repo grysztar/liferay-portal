@@ -38,7 +38,7 @@ public class JournalTemplateCacheModel implements CacheModel<JournalTemplate>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -70,6 +70,8 @@ public class JournalTemplateCacheModel implements CacheModel<JournalTemplate>,
 		sb.append(langType);
 		sb.append(", cacheable=");
 		sb.append(cacheable);
+		sb.append(", unrestricted=");
+		sb.append(unrestricted);
 		sb.append(", smallImage=");
 		sb.append(smallImage);
 		sb.append(", smallImageId=");
@@ -160,6 +162,7 @@ public class JournalTemplateCacheModel implements CacheModel<JournalTemplate>,
 		}
 
 		journalTemplateImpl.setCacheable(cacheable);
+		journalTemplateImpl.setUnrestricted(unrestricted);
 		journalTemplateImpl.setSmallImage(smallImage);
 		journalTemplateImpl.setSmallImageId(smallImageId);
 
@@ -289,6 +292,7 @@ public class JournalTemplateCacheModel implements CacheModel<JournalTemplate>,
 	public String xsl;
 	public String langType;
 	public boolean cacheable;
+	public boolean unrestricted;
 	public boolean smallImage;
 	public long smallImageId;
 	public String smallImageURL;

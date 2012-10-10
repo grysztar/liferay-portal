@@ -85,11 +85,12 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 			{ "xsl", Types.CLOB },
 			{ "langType", Types.VARCHAR },
 			{ "cacheable", Types.BOOLEAN },
+			{ "unrestricted", Types.BOOLEAN },
 			{ "smallImage", Types.BOOLEAN },
 			{ "smallImageId", Types.BIGINT },
 			{ "smallImageURL", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table JournalTemplate (uuid_ VARCHAR(75) null,id_ LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,templateId VARCHAR(75) null,structureId VARCHAR(75) null,name STRING null,description STRING null,xsl TEXT null,langType VARCHAR(75) null,cacheable BOOLEAN,smallImage BOOLEAN,smallImageId LONG,smallImageURL STRING null)";
+	public static final String TABLE_SQL_CREATE = "create table JournalTemplate (uuid_ VARCHAR(75) null,id_ LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,templateId VARCHAR(75) null,structureId VARCHAR(75) null,name STRING null,description STRING null,xsl TEXT null,langType VARCHAR(75) null,cacheable BOOLEAN,unrestricted BOOLEAN,smallImage BOOLEAN,smallImageId LONG,smallImageURL STRING null)";
 	public static final String TABLE_SQL_DROP = "drop table JournalTemplate";
 	public static final String ORDER_BY_JPQL = " ORDER BY journalTemplate.templateId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY JournalTemplate.templateId ASC";
@@ -140,6 +141,7 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 		model.setXsl(soapModel.getXsl());
 		model.setLangType(soapModel.getLangType());
 		model.setCacheable(soapModel.getCacheable());
+		model.setUnrestricted(soapModel.getUnrestricted());
 		model.setSmallImage(soapModel.getSmallImage());
 		model.setSmallImageId(soapModel.getSmallImageId());
 		model.setSmallImageURL(soapModel.getSmallImageURL());
@@ -721,6 +723,19 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 	}
 
 	@JSON
+	public boolean getUnrestricted() {
+		return _unrestricted;
+	}
+
+	public boolean isUnrestricted() {
+		return _unrestricted;
+	}
+
+	public void setUnrestricted(boolean unrestricted) {
+		_unrestricted = unrestricted;
+	}
+
+	@JSON
 	public boolean getSmallImage() {
 		return _smallImage;
 	}
@@ -824,6 +839,7 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 		journalTemplateImpl.setXsl(getXsl());
 		journalTemplateImpl.setLangType(getLangType());
 		journalTemplateImpl.setCacheable(getCacheable());
+		journalTemplateImpl.setUnrestricted(getUnrestricted());
 		journalTemplateImpl.setSmallImage(getSmallImage());
 		journalTemplateImpl.setSmallImageId(getSmallImageId());
 		journalTemplateImpl.setSmallImageURL(getSmallImageURL());
@@ -996,6 +1012,8 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 
 		journalTemplateCacheModel.cacheable = getCacheable();
 
+		journalTemplateCacheModel.unrestricted = getUnrestricted();
+
 		journalTemplateCacheModel.smallImage = getSmallImage();
 
 		journalTemplateCacheModel.smallImageId = getSmallImageId();
@@ -1013,7 +1031,7 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1045,6 +1063,8 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 		sb.append(getLangType());
 		sb.append(", cacheable=");
 		sb.append(getCacheable());
+		sb.append(", unrestricted=");
+		sb.append(getUnrestricted());
 		sb.append(", smallImage=");
 		sb.append(getSmallImage());
 		sb.append(", smallImageId=");
@@ -1057,7 +1077,7 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(58);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.portlet.journal.model.JournalTemplate");
@@ -1124,6 +1144,10 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 		sb.append(getCacheable());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>unrestricted</column-name><column-value><![CDATA[");
+		sb.append(getUnrestricted());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>smallImage</column-name><column-value><![CDATA[");
 		sb.append(getSmallImage());
 		sb.append("]]></column-value></column>");
@@ -1170,6 +1194,7 @@ public class JournalTemplateModelImpl extends BaseModelImpl<JournalTemplate>
 	private String _xsl;
 	private String _langType;
 	private boolean _cacheable;
+	private boolean _unrestricted;
 	private boolean _smallImage;
 	private long _smallImageId;
 	private long _originalSmallImageId;

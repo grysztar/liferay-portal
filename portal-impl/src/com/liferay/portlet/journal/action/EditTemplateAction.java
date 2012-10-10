@@ -25,8 +25,10 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.auth.PrincipalException;
+import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
+import com.liferay.portal.service.permission.PortalPermissionUtil;
 import com.liferay.portal.struts.PortletAction;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
@@ -241,7 +243,9 @@ public class EditTemplateAction extends PortletAction {
 
 		UploadPortletRequest uploadPortletRequest =
 			PortalUtil.getUploadPortletRequest(actionRequest);
-
+			
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+			
 		String cmd = ParamUtil.getString(uploadPortletRequest, Constants.CMD);
 
 		long groupId = ParamUtil.getLong(uploadPortletRequest, "groupId");
@@ -271,9 +275,15 @@ public class EditTemplateAction extends PortletAction {
 		String langType = ParamUtil.getString(
 			uploadPortletRequest, "langType",
 			JournalTemplateConstants.LANG_TYPE_XSL);
+			
 
 		boolean cacheable = ParamUtil.getBoolean(
 			uploadPortletRequest, "cacheable");
+			
+		boolean unrestricted = false;
+		 if (PortalPermissionUtil.contains(themeDisplay.getPermissionChecker(),ActionKeys.CREATE_UNRESTRICTED_TEMPLATES)) {
+				 unrestricted = ParamUtil.getBoolean(uploadPortletRequest, "unrestricted");
+		 }			
 
 		boolean smallImage = ParamUtil.getBoolean(
 			uploadPortletRequest, "smallImage");
@@ -292,7 +302,7 @@ public class EditTemplateAction extends PortletAction {
 
 			template = JournalTemplateServiceUtil.addTemplate(
 				groupId, templateId, autoTemplateId, structureId, nameMap,
-				descriptionMap, xsl, formatXsl, langType, cacheable, smallImage,
+				descriptionMap, xsl, formatXsl, langType, cacheable, unrestricted, smallImage,
 				smallImageURL, smallFile, serviceContext);
 		}
 		else {
@@ -301,7 +311,7 @@ public class EditTemplateAction extends PortletAction {
 
 			template = JournalTemplateServiceUtil.updateTemplate(
 				groupId, templateId, structureId, nameMap, descriptionMap, xsl,
-				formatXsl, langType, cacheable, smallImage, smallImageURL,
+				formatXsl, langType, cacheable, unrestricted, smallImage, smallImageURL,
 				smallFile, serviceContext);
 		}
 

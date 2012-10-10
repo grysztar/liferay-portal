@@ -46,6 +46,7 @@ public class JournalTemplateSoap implements Serializable {
 		soapModel.setXsl(model.getXsl());
 		soapModel.setLangType(model.getLangType());
 		soapModel.setCacheable(model.getCacheable());
+		soapModel.setUnrestricted(model.getUnrestricted());
 		soapModel.setSmallImage(model.getSmallImage());
 		soapModel.setSmallImageId(model.getSmallImageId());
 		soapModel.setSmallImageURL(model.getSmallImageURL());
@@ -227,6 +228,18 @@ public class JournalTemplateSoap implements Serializable {
 		_cacheable = cacheable;
 	}
 
+	public boolean getUnrestricted() {
+		return _unrestricted;
+	}
+
+	public boolean isUnrestricted() {
+		return _unrestricted;
+	}
+
+	public void setUnrestricted(boolean unrestricted) {
+		_unrestricted = unrestricted;
+	}
+
 	public boolean getSmallImage() {
 		return _smallImage;
 	}
@@ -270,6 +283,7 @@ public class JournalTemplateSoap implements Serializable {
 	private String _xsl;
 	private String _langType;
 	private boolean _cacheable;
+	private boolean _unrestricted;
 	private boolean _smallImage;
 	private long _smallImageId;
 	private String _smallImageURL;

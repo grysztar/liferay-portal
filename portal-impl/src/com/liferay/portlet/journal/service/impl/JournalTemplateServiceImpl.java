@@ -40,7 +40,7 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 			long groupId, String templateId, boolean autoTemplateId,
 			String structureId, Map<Locale, String> nameMap,
 			Map<Locale, String> descriptionMap, String xsl, boolean formatXsl,
-			String langType, boolean cacheable, boolean smallImage,
+			String langType, boolean cacheable, boolean unrestricted, boolean smallImage,
 			String smallImageURL, File smallFile, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
@@ -49,7 +49,7 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 
 		return journalTemplateLocalService.addTemplate(
 			getUserId(), groupId, templateId, autoTemplateId, structureId,
-			nameMap, descriptionMap, xsl, formatXsl, langType, cacheable,
+			nameMap, descriptionMap, xsl, formatXsl, langType, cacheable, unrestricted,
 			smallImage, smallImageURL, smallFile, serviceContext);
 	}
 
@@ -57,7 +57,8 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 			long groupId, String templateId, boolean autoTemplateId,
 			String structureId, Map<Locale, String> nameMap,
 			Map<Locale, String> descriptionMap, String xsl, boolean formatXsl,
-			String langType, boolean cacheable, ServiceContext serviceContext)
+			String langType, boolean cacheable, boolean unrestricted,
+			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
 		JournalPermission.check(
@@ -65,7 +66,7 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 
 		return journalTemplateLocalService.addTemplate(
 			getUserId(), groupId, templateId, autoTemplateId, structureId,
-			nameMap, descriptionMap, xsl, formatXsl, langType, cacheable, false,
+			nameMap, descriptionMap, xsl, formatXsl, langType, cacheable, unrestricted, false,
 			null, null, serviceContext);
 	}
 
@@ -152,7 +153,7 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 	public JournalTemplate updateTemplate(
 			long groupId, String templateId, String structureId,
 			Map<Locale, String> nameMap, Map<Locale, String> descriptionMap,
-			String xsl, boolean formatXsl, String langType, boolean cacheable,
+			String xsl, boolean formatXsl, String langType, boolean cacheable, boolean unrestricted,
 			boolean smallImage, String smallImageURL, File smallFile,
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
@@ -162,14 +163,14 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 
 		return journalTemplateLocalService.updateTemplate(
 			groupId, templateId, structureId, nameMap, descriptionMap, xsl,
-			formatXsl, langType, cacheable, smallImage, smallImageURL,
+			formatXsl, langType, cacheable, unrestricted, smallImage, smallImageURL,
 			smallFile, serviceContext);
 	}
 
 	public JournalTemplate updateTemplate(
 			long groupId, String templateId, String structureId,
 			Map<Locale, String> nameMap, Map<Locale, String> descriptionMap,
-			String xsl, boolean formatXsl, String langType, boolean cacheable,
+			String xsl, boolean formatXsl, String langType, boolean cacheable, boolean unrestricted,
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
@@ -178,7 +179,7 @@ public class JournalTemplateServiceImpl extends JournalTemplateServiceBaseImpl {
 
 		return journalTemplateLocalService.updateTemplate(
 			groupId, templateId, structureId, nameMap, descriptionMap, xsl,
-			formatXsl, langType, cacheable, false, null, null, serviceContext);
+			formatXsl, langType, cacheable, unrestricted, false, null, null, serviceContext);
 	}
 
 }

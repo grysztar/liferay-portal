@@ -1292,7 +1292,7 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 					userId, portletDataContext.getScopeGroupId(), templateId,
 					autoTemplateId, parentStructureId, template.getNameMap(),
 					template.getDescriptionMap(), template.getXsl(), formatXsl,
-					template.getLangType(), template.getCacheable(),
+					template.getLangType(), template.getCacheable(), false,
 					template.isSmallImage(), template.getSmallImageURL(),
 					smallFile, serviceContext);
 			}
@@ -1325,7 +1325,7 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 						existingTemplate.getTemplateId(), structureId,
 						template.getNameMap(), template.getDescriptionMap(),
 						template.getXsl(), formatXsl, template.getLangType(),
-						template.getCacheable(), template.isSmallImage(),
+						template.getCacheable(), false, template.isSmallImage(),
 						template.getSmallImageURL(), smallFile, serviceContext);
 			}
 		}
@@ -1334,7 +1334,7 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 				userId, portletDataContext.getScopeGroupId(), templateId,
 				autoTemplateId, parentStructureId, template.getNameMap(),
 				template.getDescriptionMap(), template.getXsl(), formatXsl,
-				template.getLangType(), template.getCacheable(),
+				template.getLangType(), template.getCacheable(), false,
 				template.isSmallImage(), template.getSmallImageURL(), smallFile,
 				serviceContext);
 		}

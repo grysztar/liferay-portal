@@ -1895,6 +1895,7 @@
 		<property name="xsl" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="langType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="cacheable" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="unrestricted" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="smallImage" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="smallImageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="smallImageURL" type="com.liferay.portal.dao.orm.hibernate.StringType" />

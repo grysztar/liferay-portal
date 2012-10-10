@@ -56,15 +56,15 @@ public class JournalTemplateServiceWrapper implements JournalTemplateService,
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable, boolean smallImage, java.lang.String smallImageURL,
-		java.io.File smallFile,
+		boolean cacheable, boolean unrestricted, boolean smallImage,
+		java.lang.String smallImageURL, java.io.File smallFile,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalTemplateService.addTemplate(groupId, templateId,
 			autoTemplateId, structureId, nameMap, descriptionMap, xsl,
-			formatXsl, langType, cacheable, smallImage, smallImageURL,
-			smallFile, serviceContext);
+			formatXsl, langType, cacheable, unrestricted, smallImage,
+			smallImageURL, smallFile, serviceContext);
 	}
 
 	public com.liferay.portlet.journal.model.JournalTemplate addTemplate(
@@ -73,13 +73,13 @@ public class JournalTemplateServiceWrapper implements JournalTemplateService,
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable,
+		boolean cacheable, boolean unrestricted,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalTemplateService.addTemplate(groupId, templateId,
 			autoTemplateId, structureId, nameMap, descriptionMap, xsl,
-			formatXsl, langType, cacheable, serviceContext);
+			formatXsl, langType, cacheable, unrestricted, serviceContext);
 	}
 
 	public com.liferay.portlet.journal.model.JournalTemplate copyTemplate(
@@ -156,14 +156,15 @@ public class JournalTemplateServiceWrapper implements JournalTemplateService,
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable, boolean smallImage, java.lang.String smallImageURL,
-		java.io.File smallFile,
+		boolean cacheable, boolean unrestricted, boolean smallImage,
+		java.lang.String smallImageURL, java.io.File smallFile,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalTemplateService.updateTemplate(groupId, templateId,
 			structureId, nameMap, descriptionMap, xsl, formatXsl, langType,
-			cacheable, smallImage, smallImageURL, smallFile, serviceContext);
+			cacheable, unrestricted, smallImage, smallImageURL, smallFile,
+			serviceContext);
 	}
 
 	public com.liferay.portlet.journal.model.JournalTemplate updateTemplate(
@@ -172,13 +173,13 @@ public class JournalTemplateServiceWrapper implements JournalTemplateService,
 		java.util.Map<java.util.Locale, java.lang.String> nameMap,
 		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
 		java.lang.String xsl, boolean formatXsl, java.lang.String langType,
-		boolean cacheable,
+		boolean cacheable, boolean unrestricted,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalTemplateService.updateTemplate(groupId, templateId,
 			structureId, nameMap, descriptionMap, xsl, formatXsl, langType,
-			cacheable, serviceContext);
+			cacheable, unrestricted, serviceContext);
 	}
 
 	/**

@@ -213,7 +213,7 @@ public class JournalWebDAVStorageImpl extends BaseWebDAVStorageImpl {
 					template.getGroupId(), template.getTemplateId(),
 					template.getStructureId(), template.getNameMap(),
 					template.getDescriptionMap(), xsl, formatXsl,
-					template.getLangType(), template.isCacheable(),
+					template.getLangType(), template.isCacheable(), false,
 					template.isSmallImage(), template.getSmallImageURL(),
 					smallFile, serviceContext);
 

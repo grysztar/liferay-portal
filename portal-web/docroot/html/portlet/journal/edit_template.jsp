@@ -78,6 +78,11 @@ boolean cacheable = BeanParamUtil.getBoolean(template, request, "cacheable");
 if (template == null) {
 	cacheable = true;
 }
+boolean unrestricted = BeanParamUtil.getBoolean(template, request, "unrestricted");
+
+if (template == null) {
+    unrestricted = false;
+}
 %>
 
 <aui:form method="post" name="fm2">
@@ -160,6 +165,12 @@ if (template == null) {
 
 		<aui:input helpMessage="journal-template-cacheable-help" name="cacheable" value="<%= new Boolean(cacheable) %>" />
 
+		
+		<c:if test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.CREATE_UNRESTRICTED_TEMPLATES) %>">
+			 <aui:input inlineLabel="right" name="unrestricted" value="<%= new Boolean(unrestricted) %>" />
+		</c:if>		
+		
+		
 		<c:if test="<%= template != null %>">
 			<aui:field-wrapper label="url">
 				<liferay-ui:input-resource url='<%= themeDisplay.getPortalURL() + themeDisplay.getPathMain() + "/journal/get_template?groupId=" + groupId + "&templateId=" + templateId %>' />

@@ -1125,6 +1125,8 @@ public class JournalArticleLocalServiceImpl
 					}
 				}
 
+				tokens.put("template_unrestricted",Boolean.toString(template.getUnrestricted()));				
+				
 				script = template.getXsl();
 				langType = template.getLangType();
 				cacheable = template.isCacheable();
